@@ -6,8 +6,12 @@ import { MessagePattern } from '@nestjs/microservices';
 export class AuthServiceController {
   constructor(private readonly authServiceService: AuthServiceService) {}
 
-  @MessagePattern({ cmd: 'get/auth' })
+  @MessagePattern({ cmd: 'auth.getHello' })
   getHello(): string {
+    return this.authServiceService.getHello();
+  }
+  @MessagePattern({ cmd: 'auth.getHello2' })
+  getHellotwo(): string {
     return this.authServiceService.getHello();
   }
 }

@@ -3,9 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { config } from 'process';
-import { AuthServiceController } from 'apps/auth-service/src/auth-service.controller';
-import { AuthServiceService } from 'apps/auth-service/src/auth-service.service';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -44,8 +42,9 @@ import { AuthServiceService } from 'apps/auth-service/src/auth-service.service';
         inject: [ConfigService],
       },
     ]),
+    AuthModule,
   ],
-  controllers: [AppController, AuthServiceController],
-  providers: [AppService, AuthServiceService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}

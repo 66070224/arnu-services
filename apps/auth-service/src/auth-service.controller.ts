@@ -10,8 +10,4 @@ export class AuthServiceController {
   getHello(): string {
     return this.authServiceService.getHello();
   }
-  @MessagePattern({ cmd: 'auth.getHello2' })
-  getHellotwo(): string {
-    return this.authServiceService.getHello();
-  }
 }

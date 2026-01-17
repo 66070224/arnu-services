@@ -4,21 +4,11 @@ import { AppService } from './app.service';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
+import { AuthController } from './auth/auth.controller';
 
 @Module({
   imports: [
     ClientsModule.registerAsync([
-      {
-        imports: [ConfigModule],
-        name: 'AUTH_SERVICE',
-        useFactory: (configService: ConfigService) => ({
-          transport: Transport.TCP,
-          options: {
-            port: configService.get('AUTH_PORT') ?? 4001,
-          },
-        }),
-        inject: [ConfigService],
-      },
       {
         imports: [ConfigModule],
         name: 'PROFILE_SERVICE',
@@ -44,7 +34,7 @@ import { AuthModule } from './auth/auth.module';
     ]),
     AuthModule,
   ],
-  controllers: [AppController],
+  controllers: [AppController, AuthController],
   providers: [AppService],
 })
 export class AppModule {}

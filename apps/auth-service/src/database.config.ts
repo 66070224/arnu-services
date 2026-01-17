@@ -10,7 +10,7 @@ export const databaseConfig = (
   port: config.getOrThrow<number>('DB_PORT'),
   username: config.getOrThrow<string>('DB_USER'),
   password: config.getOrThrow<string>('DB_PASS'),
-  database: config.getOrThrow<string>('DB_NAME'),
+  database: config.getOrThrow<string>('AUTH_DB_NAME'),
   autoLoadEntities: true,
   synchronize: true,
   entities: [User],

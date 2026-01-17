@@ -13,7 +13,7 @@ import { AUTH_SERVICE } from './auth.constants';
         transport: Transport.TCP,
         options: {
           host: 'localhost', // or your docker service name
-          port: 3001,
+          port: 4001,
         },
       },
     ]),

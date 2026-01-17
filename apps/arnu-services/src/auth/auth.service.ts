@@ -13,10 +13,6 @@ export class AuthService {
     return this.authClient.send({ cmd: 'auth.getHello' }, {});
   }
 
-  getAuth2(): Observable<string> {
-    return this.authClient.send({ cmd: 'auth.getHello2' }, {});
-  }
-
   getUsers(): Observable<string> {
     return this.authClient.send({ cmd: 'auth.users.getHello' }, {});
   }

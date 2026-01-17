@@ -9,10 +9,6 @@ export class AuthController {
   getAuth(): Observable<string> {
     return this.authService.getAuth();
   }
-  @Get('2')
-  getAuth2(): Observable<string> {
-    return this.authService.getAuth2();
-  }
 
   @Get('users')
   getUsersCreate(): Observable<string> {

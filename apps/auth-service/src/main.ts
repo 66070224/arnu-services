@@ -1,10 +1,10 @@
 import { NestFactory } from '@nestjs/core';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
-import { AuthModule } from 'apps/arnu-services/src/auth/auth.module';
+import { AuthServiceModule } from './auth-service.module';
 
 async function bootstrap() {
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
-    AuthModule,
+    AuthServiceModule,
     {
       transport: Transport.TCP,
       options: {
